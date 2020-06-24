@@ -10,6 +10,8 @@ export class DinosaurListComponent {
     dinoTitle: string = "Dinosaur List";
     imageWidth: number = 280;
     imageMargin: number = 2;
+    showImage: boolean = true;
+    listFilter: string = "";
     dinosaurs: any[] = [
         {
             "id": 1,
@@ -32,5 +34,9 @@ export class DinosaurListComponent {
 
 
     ];
+
+    toggleImage(): void {
+        this.showImage = !this.showImage;
+    }
 
 }

@@ -21,8 +21,8 @@
                     <thead>
                         <tr>
                             <th>
-                                <button class="btn btn-primary">
-                                    Show Image
+                                <button class="btn btn-primary" (click)='toggleImage()'>
+                                    {{ showImage ? 'Hide' : 'Show' }} Image
                                 </button>
                             </th>
                             <th>Species</th>
@@ -37,10 +37,11 @@
 
                         <tr *ngFor="let dino of dinosaurs">
                             <td>
-                                <img [src]='dino.imageUrl'
-                                     [title]='dino.species'
-                                     [style.width.px]='imageWidth'
-                                     [style.margin.px]='imageMargin'>
+                                <img *ngIf='showImage'
+                                    [src]='dino.imageUrl'
+                                    [title]='dino.species'
+                                    [style.width.px]='imageWidth'
+                                    [style.margin.px]='imageMargin'>
                             </td>
                             <td>{{ dino.species }}</td>
                             <td>{{ dino.height }}</td>
