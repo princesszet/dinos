@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 
 export class DinosaurListComponent {
     dinoTitle: string = "Dinosaur List";
+    imageWidth: number = 280;
+    imageMargin: number = 2;
     dinosaurs: any[] = [
         {
             "id": 1,

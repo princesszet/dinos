@@ -36,7 +36,12 @@
                     <tbody>
 
                         <tr *ngFor="let dino of dinosaurs">
-                            <td></td>
+                            <td>
+                                <img [src]='dino.imageUrl'
+                                     [title]='dino.species'
+                                     [style.width.px]='imageWidth'
+                                     [style.margin.px]='imageMargin'>
+                            </td>
                             <td>{{ dino.species }}</td>
                             <td>{{ dino.height }}</td>
                             <td>{{ dino.weight }}</td>
