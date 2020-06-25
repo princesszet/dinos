@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IDinosaur } from './dinosaur';
 
 @Component({
     selector: 'app-dinos',
@@ -12,7 +13,7 @@ export class DinosaurListComponent {
     imageMargin: number = 2;
     showImage: boolean = true;
     listFilter: string = "";
-    dinosaurs: any[] = [
+    dinosaurs: IDinosaur[] = [
         {
             "id": 1,
             "species": "Tyrannosaurus rex",
