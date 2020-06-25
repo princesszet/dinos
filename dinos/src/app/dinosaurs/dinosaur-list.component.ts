@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IDinosaur } from './dinosaur';
 
 @Component({
@@ -8,12 +8,14 @@ import { IDinosaur } from './dinosaur';
 
 })
 
-export class DinosaurListComponent {
+export class DinosaurListComponent implements OnInit {
     dinoTitle: string = "Dinosaur List";
     imageWidth: number = 280;
     imageMargin: number = 2;
     showImage: boolean = true;
-    listFilter: string = "";
+    _listFilter: string;
+    filtered: IDinosaur[];
+    
     dinosaurs: IDinosaur[] = [
         {
             "id": 1,
@@ -33,9 +35,31 @@ export class DinosaurListComponent {
             "starRating": 4.3,
             "imageUrl": "assets/images/brachiosaurus.jpg"
         },
-
-
     ];
+
+    constructor() {
+        this.filtered = this.dinosaurs;
+        this.listFilter = "";
+    }
+
+    ngOnInit(): void {
+        console.log("On Init!");
+    }
+
+    get listFilter(): string {
+        return this._listFilter;
+    }
+
+    set listFilter(value: string) {
+        this._listFilter = value;
+        this.filtered = this.listFilter ? this.performFilter(this.listFilter) : this.dinosaurs;
+    }
+
+    performFilter(filterBy: string): IDinosaur[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.dinosaurs.filter((dinosaur: IDinosaur) =>
+            dinosaur.species.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
 
     toggleImage(): void {
         this.showImage = !this.showImage;
