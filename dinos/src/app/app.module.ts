@@ -4,11 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DinosaurListComponent } from './dinosaurs/dinosaur-list.component';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DinosaurListComponent
+    DinosaurListComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,

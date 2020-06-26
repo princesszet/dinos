@@ -47,7 +47,9 @@
                             <td>{{ dino.height }}</td>
                             <td>{{ dino.weight }}</td>
                             <td>{{ dino.foodSource }}</td>
-                            <td>{{ dino.starRating }}</td>
+                            <td>
+                                <app-star [rating]="dino.starRating"></app-star>
+                            </td>
 
                         </tr>
 

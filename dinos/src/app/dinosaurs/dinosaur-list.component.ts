@@ -46,6 +46,10 @@ export class DinosaurListComponent implements OnInit {
         console.log("On Init!");
     }
 
+    onNotify(message: string): void {
+
+    }
+
     get listFilter(): string {
         return this._listFilter;
     }
