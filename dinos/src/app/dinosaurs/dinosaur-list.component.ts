@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDinosaur } from './dinosaur';
+import { DinosaurService } from './dinosaur.service';
 
 @Component({
     selector: 'app-dinos',
@@ -15,35 +16,17 @@ export class DinosaurListComponent implements OnInit {
     showImage: boolean = true;
     _listFilter: string;
     filtered: IDinosaur[];
+    // private _dinosaurService;
     
-    dinosaurs: IDinosaur[] = [
-        {
-            "id": 1,
-            "species": "Tyrannosaurus rex",
-            "height": "3.7 - 6.1 m",
-            "weight": "4,500 - 14,000 kg",
-            "foodSource": "carnivorous",
-            "starRating": 4.5,
-            "imageUrl": "assets/images/trex.jpeg"
-        },
-        {
-            "id": 2,
-            "species": "Brachiosaurus",
-            "height": "26 - 30 m",
-            "weight": "28.3 - 58 tons",
-            "foodSource": "herbivorous",
-            "starRating": 4.3,
-            "imageUrl": "assets/images/brachiosaurus.jpg"
-        },
-    ];
+    dinosaurs: IDinosaur[] = [];
 
-    constructor() {
-        this.filtered = this.dinosaurs;
-        this.listFilter = "";
+    constructor(private dinosaurService: DinosaurService) {
     }
 
     ngOnInit(): void {
-        console.log("On Init!");
+        // here retrieve the data from the dinosaur service
+        this.dinosaurs = this.dinosaurService.getDinosaurs();
+        this.filtered = this.dinosaurs;
     }
 
     onNotify(message: string): void {
