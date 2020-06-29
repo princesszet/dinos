@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DinosaurListComponent } from './dinosaurs/dinosaur-list.component';
 import { StarComponent } from './shared/star.component';
+import { DinosaurDetailComponent } from './dinosaurs/dinosaur-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DinosaurListComponent,
-    StarComponent
+    StarComponent,
+    DinosaurDetailComponent
   ],
   imports: [
     BrowserModule,
