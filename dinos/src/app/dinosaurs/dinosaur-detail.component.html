@@ -1,1 +1,5 @@
-<p>dinosaur-detail works!</p>
+<div class="card" *ngIf="dinosaur">
+    <div class="card-header">
+        {{ pageTitle + ": " + dinosaur.species }}
+    </div>
+</div>
