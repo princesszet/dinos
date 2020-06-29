@@ -16,7 +16,7 @@ export class DinosaurListComponent implements OnInit {
     showImage: boolean = true;
     _listFilter: string;
     filtered: IDinosaur[];
-    // private _dinosaurService;
+    errorMessage: string;
     
     dinosaurs: IDinosaur[] = [];
 
@@ -25,13 +25,17 @@ export class DinosaurListComponent implements OnInit {
 
     ngOnInit(): void {
         // here retrieve the data from the dinosaur service
-        this.dinosaurs = this.dinosaurService.getDinosaurs();
-        this.filtered = this.dinosaurs;
+        this.dinosaurService.getDinosaurs().subscribe({
+            next: dinosaurs => {
+                this.dinosaurs = dinosaurs;
+                this.filtered = this.dinosaurs;
+            },
+            error: err => this.errorMessage = err
+        });
+
     }
 
-    onNotify(message: string): void {
-
-    }
+    onNotify(message: string): void {}
 
     get listFilter(): string {
         return this._listFilter;

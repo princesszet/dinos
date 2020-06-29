@@ -1,61 +1,40 @@
 import { Injectable } from '@angular/core';
 import { IDinosaur } from './dinosaur';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
     // you can access this service from any component or service 
     // in the application
     providedIn: "root"
 })
-export class DinosaurService {
 
-    getDinosaurs(): IDinosaur[] {
-        return [
-            {
-                "id": 1,
-                "species": "Tyrannosaurus rex",
-                "height": "3.7 - 6.1 m",
-                "weight": "4,5 - 14 tons",
-                "foodSource": "carnivorous",
-                "starRating": 4.5,
-                "imageUrl": "assets/images/trex.jpeg"
-            },
-            {
-                "id": 2,
-                "species": "Brachiosaurus",
-                "height": "26 - 30 m",
-                "weight": "28,3 - 58 tons",
-                "foodSource": "herbivorous",
-                "starRating": 4.3,
-                "imageUrl": "assets/images/brachiosaurus.jpg"
-            },
-            {
-                "id": 3,
-                "species": "Velociraptor",
-                "height": "1.5 - 2 m",
-                "weight": "12 - 19,7 kg",
-                "foodSource": "carnivorous",
-                "starRating": 3.9,
-                "imageUrl": "assets/images/velociraptor.jpg"
-            },
-            {
-                "id": 2,
-                "species": "Maiasaura",
-                "height": "2.5 m",
-                "weight": "3 - 10 tons",
-                "foodSource": "herbivorous",
-                "starRating": 4.9,
-                "imageUrl": "assets/images/maiasaura.jpg"
-            },
-            {
-                "id": 2,
-                "species": "Diplodocus",
-                "height": "up to 52 m",
-                "weight": "11 - 15 tons",
-                "foodSource": "herbivorous",
-                "starRating": 4,
-                "imageUrl": "assets/images/diplodocus.png"
-            },
-        ]
+export class DinosaurService {
+    private dinosaurUrl = 'api/dinosaurs/dinosaurs.json';
+
+    constructor(private http: HttpClient) {}
+
+    getDinosaurs(): Observable<IDinosaur[]> {
+        return this.http.get<IDinosaur[]>(this.dinosaurUrl).pipe(
+            tap(data => console.log("All:" + JSON.stringify(data))),
+            catchError(this.handleError)
+        );
+    }
+
+    private handleError(err: HttpErrorResponse) {
+        let errorMessage = "";
+
+        if (err.error instanceof ErrorEvent) {
+            errorMessage = `An error occured: ${err.error.message}`;
+        } else {
+            errorMessage = `Server returned code: ${err.status}, 
+                            error message is: ${err.message}`;
+        }
+        
+        console.error(errorMessage);
+        return throwError(errorMessage);
+
     }
 
 }
