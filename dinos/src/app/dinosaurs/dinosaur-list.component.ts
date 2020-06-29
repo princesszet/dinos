@@ -3,7 +3,6 @@ import { IDinosaur } from './dinosaur';
 import { DinosaurService } from './dinosaur.service';
 
 @Component({
-    selector: 'app-dinos',
     templateUrl: './dinosaur-list.component.html',
     styleUrls: ['./dinosaur-list.component.css']
 
