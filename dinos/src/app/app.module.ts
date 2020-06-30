@@ -10,6 +10,7 @@ import { DinosaurListComponent } from './dinosaurs/dinosaur-list.component';
 import { StarComponent } from './shared/star.component';
 import { DinosaurDetailComponent } from './dinosaurs/dinosaur-detail.component';
 import { WelcomeComponent } from './home/welcome.component'
+import { DinosaurDetailGuard } from './dinosaurs/dinosaur-detail.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { WelcomeComponent } from './home/welcome.component'
     HttpClientModule,
     RouterModule.forRoot([
       { path: "dinosaurs", component: DinosaurListComponent},
-      { path: "dinosaurs/:id", component: DinosaurDetailComponent},
+      { path: "dinosaurs/:id", 
+        canActivate: [DinosaurDetailGuard], 
+        component: DinosaurDetailComponent},
       { path: "welcome", component: WelcomeComponent },
       { path: "", redirectTo: "welcome", pathMatch: "full" },
       { path: "**", redirectTo: "welcome", pathMatch: "full" }

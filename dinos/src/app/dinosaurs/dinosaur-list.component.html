@@ -43,7 +43,11 @@
                                     [style.width.px]='imageWidth'
                                     [style.margin.px]='imageMargin'>
                             </td>
-                            <td>{{ dino.species }}</td>
+                            <td>
+                                <a [routerLink]="['/dinosaurs', dino.id]">
+                                    {{ dino.species }}
+                                </a>
+                            </td>
                             <td>{{ dino.height }}</td>
                             <td>{{ dino.weight }}</td>
                             <td>{{ dino.foodSource }}</td>
