@@ -11,6 +11,7 @@ import { StarComponent } from './shared/star.component';
 import { DinosaurDetailComponent } from './dinosaurs/dinosaur-detail.component';
 import { WelcomeComponent } from './home/welcome.component'
 import { DinosaurDetailGuard } from './dinosaurs/dinosaur-detail.guard';
+import { DinosaurModule } from './dinosaurs/dinosaur.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DinosaurDetailGuard } from './dinosaurs/dinosaur-detail.guard';
       { path: "welcome", component: WelcomeComponent },
       { path: "", redirectTo: "welcome", pathMatch: "full" },
       { path: "**", redirectTo: "welcome", pathMatch: "full" }
-    ])
+    ]),
+    DinosaurModule
   ],
 
   providers: [],
