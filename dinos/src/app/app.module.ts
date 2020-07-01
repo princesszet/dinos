@@ -13,7 +13,6 @@ import { DinosaurModule } from './dinosaurs/dinosaur.module';
     AppComponent,
     WelcomeComponent
   ],
-
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,7 +24,6 @@ import { DinosaurModule } from './dinosaurs/dinosaur.module';
     ]),
     DinosaurModule
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })

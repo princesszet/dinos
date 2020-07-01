@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DinosaurListComponent } from './dinosaur-list.component';
 import { DinosaurDetailComponent } from './dinosaur-detail.component';
 import { DinosaurDetailGuard } from './dinosaur-detail.guard';
-import { StarComponent } from '../shared/star.component';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
     DinosaurListComponent,
-    DinosaurDetailComponent,
-    StarComponent
+    DinosaurDetailComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
+
     RouterModule.forChild([
       { path: "dinosaurs", component: DinosaurListComponent },
       {
@@ -25,7 +21,8 @@ import { RouterModule } from '@angular/router';
         canActivate: [DinosaurDetailGuard],
         component: DinosaurDetailComponent
       },
-    ])
+    ]),
+    SharedModule
   ]
 })
 
