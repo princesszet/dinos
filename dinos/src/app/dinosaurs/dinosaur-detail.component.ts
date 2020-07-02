@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IDinosaur } from './dinosaur';
+import { DinosaurService } from './dinosaur.service'
 
 @Component({
   templateUrl: './dinosaur-detail.component.html',
@@ -9,23 +10,27 @@ import { IDinosaur } from './dinosaur';
 
 export class DinosaurDetailComponent implements OnInit {
   pageTitle: string = "Dinosaur Detail";
-  dinosaur: IDinosaur;
+  errorMessage = "";
+  dinosaur: IDinosaur | undefined;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private dinosaurService: DinosaurService) { }
 
   ngOnInit() {
-    let id = +this.route.snapshot.paramMap.get("id");
-    this.pageTitle += `: ${id}`;
-    this.dinosaur = {
-      "id": 1,
-      "species": "Tyrannosaurus rex",
-      "height": "3.7 - 6.1 m",
-      "weight": "4,5 - 14 tons",
-      "foodSource": "carnivorous",
-      "starRating": 4.5,
-      "imageUrl": "assets/images/trex.jpeg"
+    const param = this.route.snapshot.paramMap.get("id");
+    if (param) {
+      const id = +param;
+      this.getDinosaur(id);
+
     }
+  }
+
+  getDinosaur(id: number) {
+    this.dinosaurService.getDinosaur(id).subscribe({
+      next: dinosaur => this.dinosaur = dinosaur,
+      error: err => this.errorMessage = err
+    });
   }
 
   onBack(): void {

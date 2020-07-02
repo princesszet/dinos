@@ -6,7 +6,8 @@
     "weight": "4,5 - 14 tons",
     "foodSource": "carnivorous",
     "starRating": 4.5,
-    "imageUrl": "assets/images/trex.jpeg"
+    "imageUrl": "assets/images/trex.jpeg",
+    "details": "Tyrannosaurus is a genus of coelurosaurian theropod dinosaur. The species Tyrannosaurus rex, often called T. rex or colloquially T-Rex, is one of the most well-represented of the large theropods. Tyrannosaurus lived throughout what is now western North America, on what was then an island continent known as Laramidia."
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "weight": "28,3 - 58 tons",
     "foodSource": "herbivorous",
     "starRating": 4.3,
-    "imageUrl": "assets/images/brachiosaurus.jpg"
+    "imageUrl": "assets/images/brachiosaurus.jpg",
+    "details": "Brachiosaurus is a genus of sauropod dinosaur that lived in North America during the Late Jurassic, about 154– 153 million years ago.It was first described by American paleontologist Elmer S.Riggs in 1903 from fossils found in the Colorado River valley in western Colorado, United States."
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "weight": "12 - 19,7 kg",
     "foodSource": "carnivorous",
     "starRating": 3.9,
-    "imageUrl": "assets/images/velociraptor.jpg"
+    "imageUrl": "assets/images/velociraptor.jpg",
+    "details": "Velociraptor is a genus of dromaeosaurid theropod dinosaur that lived approximately 75 to 71 million years ago during the latter part of the Cretaceous Period. Two species are currently recognized, although others have been assigned in the past."
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "weight": "3 - 10 tons",
     "foodSource": "herbivorous",
     "starRating": 4.9,
-    "imageUrl": "assets/images/maiasaura.jpg"
+    "imageUrl": "assets/images/maiasaura.jpg",
+    "details": "Maiasaura is a large herbivorous hadrosaurid dinosaur genus that lived in the area currently covered by the state of Montana in the Upper Cretaceous Period, about 76.7 million years ago. The first fossils of Maiasaura were discovered in 1978. The genus was named in 1979."
   },
   {
     "id": 5,
@@ -42,6 +46,7 @@
     "weight": "11 - 15 tons",
     "foodSource": "herbivorous",
     "starRating": 4,
-    "imageUrl": "assets/images/diplodocus.png"
+    "imageUrl": "assets/images/diplodocus.png",
+    "details": "Diplodocus is a genus of dinosaurs that lived in what is now mid-western North America at the end of the Jurassic period. Diplodocus is one of the more common dinosaur fossils found in the middle to upper Morrison Formation, between about 154 and 152 million years ago, during the late Kimmeridgian age."
   }
 ]

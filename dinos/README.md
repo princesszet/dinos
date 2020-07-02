@@ -1,6 +1,7 @@
 # Dinos
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.
+Developed based on Deborah Kurata's ANgular: Getting Started course made for Pluralsight (https://github.com/DeborahK/Angular-GettingStarted).
 
 ## Development server
 

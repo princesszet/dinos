@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IDinosaur } from './dinosaur';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, tap, map } from 'rxjs/operators';
 
 @Injectable({
     // you can access this service from any component or service 
@@ -19,6 +19,12 @@ export class DinosaurService {
         return this.http.get<IDinosaur[]>(this.dinosaurUrl).pipe(
             tap(data => console.log("All:" + JSON.stringify(data))),
             catchError(this.handleError)
+        );
+    }
+
+    getDinosaur(id: number): Observable<IDinosaur | undefined> {
+        return this.getDinosaurs().pipe(
+            map((dinosaurs: IDinosaur[]) => dinosaurs.find(d => d.id === id))
         );
     }
 
